@@ -1,5 +1,3 @@
-//IX Bear Class
-
 import java.awt.*;
 
 public class Bear extends Critter {
