@@ -2,29 +2,23 @@ import java.awt.*;
 
 public class Orca extends Critter {
     private int counter = 0;
-    private boolean color, shape;
+    private boolean shape;
 
     public Action getMove(CritterInfo info) {
-        if (counter <= 25) {
+        if (counter <= 499) {
             counter++;
             return killerWhale(info);
-        } else if (counter == 26){
+        } else if (counter == 500){
             return Action.HOP;
         } else {
             counter = 0;
-            return killeDWhale(info);
+            return killerWhale(info);
         }
         
     }
 
     public Color getColor() {
-        color = !color;
-
-        if (color == true) {
-            return Color.BLACK;
-        } else {
             return Color.CYAN;
-        }
     }
 
     public String toString() {
@@ -37,7 +31,7 @@ public class Orca extends Critter {
         }
     }
 
-    public Action killeDWhale(CritterInfo info) {
+    /*public Action killeDWhale(CritterInfo info) {
         if (info.getFront() == Neighbor.EMPTY &&
             info.getBack() == Neighbor.EMPTY &&
             info.getLeft() == Neighbor.EMPTY &&
@@ -131,18 +125,15 @@ public class Orca extends Critter {
         } else {
             return Action.INFECT;
         }
-    }
+    }*/
 
+    // Action for Orca
     public Action killerWhale(CritterInfo info) {
         if (info.getFront() == Neighbor.EMPTY &&
             info.getBack() == Neighbor.EMPTY &&
             info.getLeft() == Neighbor.EMPTY &&
             info.getRight() == Neighbor.EMPTY) {
                 return Action.HOP;
-        } else if (info.getFront() == Neighbor.WALL) {
-            return Action.RIGHT;
-        } else if (info.getFront() == Neighbor.SAME) {
-            return Action.RIGHT;
         } else if (info.getFront() == Neighbor.OTHER) {
             return Action.INFECT;
         } else {
