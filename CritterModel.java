@@ -236,7 +236,7 @@ public class CritterModel {
                     // and add to the map
                     info.put(grid[p2.x][p2.y], oldData);
                 }
-            }
+            } 
         }
         updateColorString();
     }
